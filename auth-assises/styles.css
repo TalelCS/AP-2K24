@@ -1,0 +1,587 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif,;
+}
+section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+#stepper_container > div
+{
+    background-color: rgba(255, 255, 255,0.1);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 1);
+    border: 1px solid rgba(255, 255, 255,0.5);
+    border-right: 1px solid rgba(255, 255, 255,0.2);
+    border-bottom: 1px solid rgba(255, 255, 255,0.2);
+    border-radius: 10px;
+    backdrop-filter: blur(25px);
+}
+#login
+{
+    width: auto;
+    padding-top: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#signin
+{
+    position: relative;
+    width: 600px;
+    min-height: 600px !important;
+    background-color: rgba(255, 255, 255,0.1);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 1);
+    border: 1px solid rgba(255, 255, 255,0.5);
+    border-right: 1px solid rgba(255, 255, 255,0.2);
+    border-bottom: 1px solid rgba(255, 255, 255,0.2);
+    border-radius: 10px;
+    backdrop-filter: blur(25px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#LogInForm
+{
+    width: 400px;
+    height: 300px;
+    box-sizing: content-box;
+    justify-content: center;
+    align-self: center;
+}
+#SignInForm
+{
+    margin-top: 50px;
+    box-sizing: content-box;
+    justify-content: center;
+    align-self: center;
+}
+.h1{
+    text-align: center;
+    justify-content: center;
+    color: #fff !important;
+}
+#LogInForm > div.row.mb-4 > div.col.d-flex.justify-content-center > div > label
+{
+    color: #fff !important;
+}
+#reset
+{
+    color: #fff !important;
+    cursor: pointer;
+}
+#LogInForm > div.text-center > p
+{
+    color: #fff !important;
+}
+#SignInForm > div.form-check.d-flex.justify-content-center.mb-4 > label
+{
+    color: #fff !important;
+}
+#SignInForm > div.text-center > p
+{
+    color: #fff !important;
+}
+#stepper-step-1 > div.row.mb-3 > div:nth-child(1)
+{
+    padding-left: 15px;
+}
+#stepper-step-1 > div.row.mb-3 > div:nth-child(2)
+{
+    padding-right: 15px;
+}
+.pricing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  
+    .plan {
+      background-color: #fff;
+      padding: 2.5rem;
+      margin: 12px;
+      border-radius: 5px;
+      text-align: center;
+      transition: 0.3s;
+  
+      h2 {
+        font-size: 22px;
+        margin-bottom: 12px;
+      }
+  
+      .price {
+        margin-bottom: 1rem;
+        font-size: 30px;
+      }
+  
+      ul.features {
+        list-style-type: none;
+        text-align: left;
+        li {
+          margin: 8px;
+          .fas {
+            margin-right: 4px;
+          }
+          .fa-check-circle {
+            color: #6ab04c;
+          }
+          .fa-times-circle {
+            color: #eb4d4b;
+          }
+        }
+      }
+  
+      button {
+        border: none;
+        width: 100%;
+        padding: 12px 35px;
+        margin-top: 1rem;
+        background-color: #6ab04c;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      &:hover {
+        box-shadow: 5px 7px 67px -28px rgba(0, 0, 0, 0.37);
+      }
+    }
+  }
+
+  body > section > div.pricing > div.plan.popular > ul
+  {
+    padding: 0px !important;
+  }
+
+  body > section > div.pricing > div:nth-child(3) > ul
+  {
+    padding: 0px !important;
+  }
+
+  body > section > div.pricing > div:nth-child(1) > ul
+  {
+    padding: 0px !important;
+  }
+
+  .plan {
+    /* Existing CSS properties */
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+  
+  .plan:hover {
+    transform: scale(1.08); /* Grow in size */
+    background-color: #6ab04c; /* Invert background color */
+    color: #fff; /* Invert text color */
+  }
+  #gold {
+          background-color: #fff;
+          padding: 2.5rem;
+          margin: 12px;
+          border-radius: 5px;
+          text-align: center;
+          transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+          border: 2px solid #6ab04c;
+          position: relative;
+          transform: scale(1.08);
+      
+          h2 {
+            font-size: 22px;
+            margin-bottom: 12px;
+          }
+      
+          .price {
+            margin-bottom: 1rem;
+            font-size: 30px;
+          }
+      
+          ul.features {
+            list-style-type: none;
+            text-align: left;
+            li {
+              margin: 8px;
+              .fas {
+                margin-right: 4px;
+              }
+              .fa-check-circle {
+                color: #6ab04c;
+              }
+              .fa-times-circle {
+                color: #eb4d4b;
+              }
+            }
+          }
+      
+          button {
+            border: none;
+            width: 100%;
+            padding: 12px 35px;
+            margin-top: 1rem;
+            background-color: #6ab04c;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+          }
+          span {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #6ab04c;
+            color: #fff;
+            padding: 4px 5px;
+            font-size: 18px;
+            border-radius: 5px;
+          }
+  }
+  
+  #gold:hover {
+    transform: scale(1.14); /* Grow in size */
+    background-color: #6ab04c; /* Invert background color */
+    color: #fff; /* Invert text color */
+    box-shadow: 5px 7px 67px -28px rgba(0, 0, 0, 0.37);
+  }
+  .plan:hover button,
+.plan:hover span {
+  background-color: #fff; /* Green becomes white */
+  color: #6ab04c; /* White becomes green */
+}
+.plan:hover i
+{
+    color: #fff !important;
+}
+#gold:hover button,
+#gold:hover span {
+  background-color: #fff; /* Green becomes white */
+  color: #6ab04c; /* White becomes green */
+}
+
+.selected {
+    transform: scale(1.08); /* Grow in size */
+    background-color: #6ab04c !important; /* Invert background color */
+    color: #fff !important; /* Invert text color */
+}
+.selected button,
+.selected span{
+    background-color: #fff !important; /* Green becomes white */
+  color: #6ab04c !important; /* White becomes green */
+}
+.selected i
+{
+    color:#fff !important;
+}
+
+
+
+  @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
+
+
+  @import "compass";
+
+  .stepper {
+      .nav-tabs {
+          position: relative;
+      }
+      .nav-tabs > li {
+          width: 25%;
+          position: relative;
+          &:after {
+              content: '';
+              position: absolute;
+              background: #f1f1f1;
+              display: block;
+              width: 100%;
+              height: 5px;
+              top: 30px;
+              left: 50%;
+              z-index: 1;
+          }
+          &.completed {
+              &::after {
+                  background: #34bc9b;
+              }
+          }
+          &:last-child {
+              &::after {
+                  background: transparent;
+              }
+          }
+          &.active:last-child {
+              .round-tab {
+                  background: #34bc9b;
+                  &::after {
+                      content: '✔';
+                      color: #fff;
+                      position: absolute;
+                      left: 0;
+                      right: 0;
+                      margin: 0 auto;
+                      top: 0;
+                      display: block;
+                  }
+              }
+          }
+      }
+      .nav-tabs [data-toggle='tab'] {
+          width: 25px;
+          height: 25px;
+          margin: 20px auto;
+          border-radius: 100%;
+          border: none;
+          padding: 0;
+          color: #f1f1f1;
+      }
+      .nav-tabs [data-toggle='tab']:hover {
+          background: transparent;
+          border: none;
+      }
+      .nav-tabs > .active > [data-toggle='tab'], .nav-tabs > .active > [data-toggle='tab']:hover, .nav-tabs > .active > [data-toggle='tab']:focus {
+          color: #34bc9b;
+          cursor: default;
+          border: none;
+      }
+      .tab-pane {
+          position: relative;
+      }
+      .round-tab {
+          width: 25px;
+          height: 25px;
+          line-height: 22px;
+          display: inline-block;
+          border-radius: 25px;
+          background: #fff;
+          border: 2px solid #34bc9b;
+          color: #34bc9b;
+          z-index: 2;
+          position: absolute;
+          left: 0;
+          text-align: center;
+          font-size: 14px;
+          
+      }
+      .completed .round-tab{
+          background: #34bc9b;
+          &::after {
+              content: '✔';
+              color: #fff;
+              position: absolute;
+              left: 0;
+              right: 0;
+              margin: 0 auto;
+              top: 0;
+              display: block;
+          }
+      }
+      .active .round-tab {
+          background: #fff;
+          border: 2px solid #34bc9b;
+          &:hover {
+              background: #fff;
+              border: 2px solid #34bc9b;
+          }
+          &::after {
+              display: none;
+          }
+      }
+      .disabled .round-tab {
+          background: #fff;
+          color: #f1f1f1;
+          border-color: #f1f1f1;
+          &:hover {
+              color: #4dd3b6;
+              border: 2px solid #a6dfd3;
+          }
+          &::after {
+              display: none;
+          }
+      }
+  }
+  .upload-wrapper{
+    background-color: rgba(0, 0, 0, 0);
+    min-width: 400px;
+    min-height: 400px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+.upload-img{
+    max-width: 120px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+.upload-img img{
+    width: 100%;
+}
+.upload-text{
+    color: rgba(0, 0, 0, 0.2);
+    font-size: larger;
+    font-weight: 600;
+    margin-top: 12px;
+}
+.upload-container{
+    border: 2px dashed rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    min-width: 400px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+.upload-container:hover{
+    background-color: rgba(253, 59, 132, 0.02);
+    border-color: rgb(191, 254, 132);
+}
+.upload-btn{
+    background: #ADBC9F;
+    background: radial-gradient(circle, #ADBC9F 35%, #436850 100%);
+    border: none;
+    font-family: inherit;
+    font-size: 17px;
+    color: #fff;
+    padding: 7px 18px;
+    margin-top: 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: rgb(200, 41, 102) 0px 8px 10px -11px;
+    transition: all 0.3s ease-in-out;
+}
+.upload-btn:hover{
+    box-shadow: rgb(200, 41, 102) 0px 8px 10px -9px;
+}
+.visually-hidden{
+    display: none;
+}
+.fail_container
+{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.finish_container
+{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#stepper-step-4 > div > h3
+{
+    color: #fff !important;
+}
+#stepper-step-4 > div > p
+{
+    color: #fff !important;
+}
+#stepper-step-4 > div > a
+{
+    margin-bottom: auto;
+}
+#SignInForm > div
+{
+    min-height: 18.75rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+.image-upload
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.alert-danger {
+    color: #ea868f !important;
+    background-color: #2c0b0e !important;
+    border-color: #842029 !important;
+}
+#liveAlertPlaceholder > div > div > button
+{
+    color: #ea868f !important;
+}
+.loader {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border: 4px solid #Fff;
+    top: 50%;
+    animation: loader 2s infinite ease;
+  }
+  
+  .loader-inner {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+    animation: loader-inner 2s infinite ease-in;
+  }
+  
+  @keyframes loader {
+    0% {
+      transform: rotate(0deg);
+    }
+    
+    25% {
+      transform: rotate(180deg);
+    }
+    
+    50% {
+      transform: rotate(180deg);
+    }
+    
+    75% {
+      transform: rotate(360deg);
+    }
+    
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes loader-inner {
+    0% {
+      height: 0%;
+    }
+    
+    25% {
+      height: 0%;
+    }
+    
+    50% {
+      height: 100%;
+    }
+    
+    75% {
+      height: 100%;
+    }
+    
+    100% {
+      height: 0%;
+    }
+  }
+  #stepper-step-1 > div:nth-child(2) > div:nth-child(1) > div > label
+  {
+    color: #fff !important;
+  }
+  #stepper-step-1 > div:nth-child(2) > div:nth-child(2) > div > label
+  {
+    color: #fff !important;
+  }

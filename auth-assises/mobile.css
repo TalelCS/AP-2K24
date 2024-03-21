@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif,;
+}
+section {
+    position: relative;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+#stepper_container
+{
+    width: auto !important;
+}
+#signin
+{
+    position: relative;
+    width: 350px !important;
+    min-height: 500px;
+    background-color: rgba(255, 255, 255,0.1);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 1);
+    border: 1px solid rgba(255, 255, 255,0.5);
+    border-right: 1px solid rgba(255, 255, 255,0.2);
+    border-bottom: 1px solid rgba(255, 255, 255,0.2);
+    border-radius: 10px;
+    backdrop-filter: blur(25px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#SignInForm
+{
+    width: fit-content !important;
+    height: 450px;
+    margin-top: 50px;
+    box-sizing: content-box;
+    justify-content: center;
+    align-self: center;
+}
+#signInBtn
+{
+    width: auto !important;
+}
+.h1{
+    text-align: center;
+    justify-content: center;
+    color: #fff !important;
+}
+#LogInForm > div.row.mb-4 > div.col.d-flex.justify-content-center > div > label
+{
+    color: #fff !important;
+}
+#reset
+{
+    color: #fff !important;
+    cursor: pointer;
+}
+#LogInForm > div.text-center > p
+{
+    color: #fff !important;
+}
+#SignInForm > div.form-check.d-flex.justify-content-center.mb-4 > label
+{
+    color: #fff !important;
+}
+#SignInForm > div.text-center > p
+{
+    color: #fff !important;
+}
+.upload-container{
+    border: 2px dashed rgba(0, 0, 0, 0.2);
+    min-width: 0px !important;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+#SignInForm > div
+{
+    min-height: 18.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+#liveAlertPlaceholder
+{
+    margin: 2rem;
+}

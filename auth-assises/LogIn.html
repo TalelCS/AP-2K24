@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="shortcut icon" type="image/x-icon" href="icone.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css" media="(max-width: 768px)">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <section>
+        <div style="display: flex; justify-content: center">
+            <div id="liveAlertPlaceholder" style="height: 5rem; width: 50rem; padding: 2rem;" class="text-center"></div>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <img src="images/logo-assises.png" alt="logo_malik" class="icon" width="200px" style="margin-bottom: 20px;">
+        </div>
+        <div class="h1">
+            Log In
+        </div>
+        <div class="container" id="stepper_container" style="width: 70rem;">
+            <div class="panel panel-default">
+              <div class="panel-body">
+        <div class="container" id="login">
+            <form id="LogInForm">
+                <div class="form-outline mb-3">
+                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                    <div class="invalid-feedback">
+                        Please select a valid email address !
+                      </div>
+                </div>
+
+                <div class="form-outline mb-3">
+                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col d-flex justify-content-center">
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="rememberMe" checked />
+                            <label class="form-check-label" for="rememberMe"> Remember me </label>
+                        </div>
+                    </div>
+
+                    <div class="col justify-content-center">
+                        <!-- Simple link -->
+                        <a id="reset">Forgot password?</a>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <!-- Submit button -->
+                    <button id="signInBtn" type="button" class="btn btn-success btn-block mb-4">Log In</button>
+                </div>
+                <!-- Register buttons -->
+                <div class="text-center">
+                    <p>Not a Member? <a href="SignIn.html" >Register</a></p>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+      import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyB89Hfs5OwQoHpLSY3OQi-iunFvkwoWcQA",
+        authDomain: "ap2k24-m.firebaseapp.com",
+        projectId: "ap2k24-m",
+        storageBucket: "ap2k24-m.appspot.com",
+        messagingSenderId: "761377868325",
+        appId: "1:761377868325:web:2110c7f5304764d78d4dcc",
+        measurementId: "G-QGM66PBSQ5"
+        };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      function signIn() {
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+        const appendAlert = (message, type) => {
+        const wrapper = document.createElement('div')
+        wrapper.innerHTML = [
+            `<div class="alert alert-${type} alert-dismissible d-flex justify-content-center align-items-center" role="alert">`,
+            `   <div>${message}</div>`,
+            '   <button type="button" class="btn-close" data-bs-dismiss="alert" id="dismiss-alert" aria-label="Close"></button>',
+            '</div>'
+        ].join('')
+
+        alertPlaceholder.append(wrapper)
+        setTimeout(function() {
+                document.getElementById("dismiss-alert").click();
+            }, 2000);
+        }
+
+          signInWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => {
+                  // Signed in
+                  const user = userCredential.user;
+                  console.log(user);
+                  // ...
+                  if (user.uid === "247t3niK87TjgBFZ9mqp8LDk1ql2"){
+                    window.location.href = 'dashboard.html';
+                  }
+                  else {
+                    window.location.href = 'Home.html';
+                  }
+                  
+                
+              })
+              .catch((error) => {
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  console.log(errorCode, errorMessage);
+                  appendAlert('invalid email or password !', 'danger');
+              });
+      }
+      function resetEmail () {
+        const email = document.getElementById("email").value;
+        sendPasswordResetEmail(auth, email)
+        .then(() => {
+          console.log("Password reset Email is sent successfully !")
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // ..
+        });
+      }
+
+      document.getElementById("signInBtn").addEventListener("click", signIn);
+      document.getElementById("reset").addEventListener("click", resetEmail);
+    </script>
+  </body>
+</html>

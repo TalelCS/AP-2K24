@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="shortcut icon" type="image/x-icon" href="icone.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css"
+    rel="stylesheet"
+    />
+</head>
+<body>
+    <section>
+        <div style="display: flex; align-items: center; justify-content: center; margin: 1rem;">
+            <h1 style="color: white;">Participants Management</h1>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center; margin: 1rem;">
+            <div style="color: white;" id="user-count"></div>
+        </div>
+        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+            <input type="text" id="search-input" placeholder="Search by Name or Email" class="form-control me-2">
+            <button type="button" class="btn btn-outline-success" onclick="searchUsers()">Search</button>
+          </div>
+        <div class="table-responsive" style="margin: 1rem; width: -webkit-fill-available;">
+            <table class="table table-dark table-hover table-bordered align-middle">
+                <thead>
+                <tr>
+                    <th>Picture</th>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Num_Tel</th>
+                    <th>OLM</th>
+                    <th>Poste</th>
+                    <th>Plan</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody id="tableBody" class="table-group-divider table-divider-color"></tbody>
+            </table>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- MDB -->
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"
+    ></script>
+</body>
+</html>
+
+  <script type="module">
+     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+     import { getFirestore, collection, orderBy, query, getDocs} from "https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js";
+
+
+        const firebaseConfig = {
+        apiKey: "AIzaSyB89Hfs5OwQoHpLSY3OQi-iunFvkwoWcQA",
+        authDomain: "ap2k24-m.firebaseapp.com",
+        projectId: "ap2k24-m",
+        storageBucket: "ap2k24-m.appspot.com",
+        messagingSenderId: "761377868325",
+        appId: "1:761377868325:web:2110c7f5304764d78d4dcc",
+        measurementId: "G-QGM66PBSQ5"
+    };
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  
+    const collectionName = "users";
+    const collectionRef = collection(db, collectionName);
+  
+    async function getData() {
+      const userCountRef = collection(db, "users");
+      const userCountSnap = await getDocs(userCountRef);
+      const userCount = userCountSnap.size; // Get the total number of documents
+      const q = query(collectionRef,orderBy("id"));
+      const querySnapshot = await getDocs(q);
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push(doc.data());
+      });
+      console.log(data);
+      return {data,userCount};
+    }
+    
+    const desiredOrder = ["photoURL" ,"id", "displayName", "lastName", "Radio" , "email" , "phoneNumber" , "OLM" , "Poste" , "plan"];
+
+    async function displayDataInTable(data) {
+        const tableBody = document.getElementById("tableBody");
+
+        data.forEach((item) => {
+            const sortedItem = {};
+            desiredOrder.forEach((key) => {
+            sortedItem[key] = item[key];
+            });
+
+            const row = document.createElement("tr");
+            Object.keys(sortedItem).forEach((key) => {
+            const cell = document.createElement("td");
+
+            // Modify based on desired key handling:
+            if (key === "photoURL") {
+                const img = document.createElement("img");
+                img.src = sortedItem[key];
+                img.alt = "User image";
+                img.style.width = "50px";
+                img.style.height = "50px";
+                img.style.borderRadius = "50%";
+                cell.appendChild(img);
+            } else {
+                cell.textContent = sortedItem[key];
+            }
+            row.appendChild(cell);
+            });
+            const cell2 = document.createElement("td");
+            const spn = document.createElement("span");
+            spn.textContent = "registred";
+            spn.className = "badge badge-light";
+            cell2.appendChild(spn);
+            row.appendChild(cell2);
+            const cell3 = document.createElement("td");
+            const btn = document.createElement("button");
+            btn.textContent = "Confirm";
+            btn.type ="button";
+            btn.className = "btn btn-success";
+            cell3.appendChild(btn);
+            row.appendChild(cell3);
+            btn.addEventListener("click", () => {
+            updateStatus(row);
+            });
+            tableBody.appendChild(row);
+        });
+        }
+
+
+  
+    getData().then((data) => {
+        document.getElementById("user-count").textContent = `Total Users: ${data.userCount}`;
+        displayDataInTable(data.data);
+    });
+
+    function updateStatus(row) {
+    // Update status cell content
+    row.children[10].firstChild.textContent = "confirmed";
+
+    // Update badge class
+    row.children[10].firstChild.classList.remove("badge-light");
+    row.children[10].firstChild.classList.add("badge-success");
+
+    // Update button content and class
+    row.children[11].firstChild.textContent = "Cancel";
+    row.children[11].firstChild.classList.remove("btn-success");
+    row.children[11].firstChild.classList.add("btn-danger");
+    }
+
+    function searchUsers() {
+  const searchTerm = document.getElementById("search-input").value.toLowerCase();
+  const allData = getData().then((data) => data.data); // Get all user data
+
+  allData.then((data) => {
+    const filteredData = data.filter((user) => {
+      const fullName = `${user.displayName.toLowerCase()} ${user.lastName.toLowerCase()}`;
+      return fullName.includes(searchTerm) || user.email.toLowerCase().includes(searchTerm);
+    });
+    displayDataInTable(filteredData); // Display only filtered data
+  });
+}
+  </script>

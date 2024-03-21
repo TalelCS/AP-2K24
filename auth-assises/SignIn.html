@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="shortcut icon" type="image/x-icon" href="icone.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css" media="(max-width: 768px)">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <section>
+        <div style="display: flex; justify-content: center">
+            <div id="liveAlertPlaceholder" style="height: 5rem; width: 50rem; padding-top: 2rem;" class="text-center"></div>
+        </div>
+        <div style="display: flex; justify-content: center;">
+          <img src="images/logo-assises.png" alt="logo_malik" class="icon" width="200px" style="margin-bottom: 20px;">
+        </div>
+        <div class="h1">
+          Sign In
+        </div>
+        <div class="text-center">
+            <p>Already have an Account ? <a href="LogIn.html">Log In</a></p>
+        </div>
+        <div class="container" id="stepper_container">
+            <div class="panel panel-default">
+              <div class="panel-body">
+          
+                <div class="stepper">
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                      <a id="stepper-step-1-tab" class="persistant-disabled" href="#stepper-step-1" data-toggle="tab" aria-controls="stepper-step-1" role="tab" title="Step 1">
+                        <span class="round-tab">1</span>
+                      </a>
+                    </li>
+                    <li role="presentation" class="disabled">
+                      <a id="stepper-step-2-tab" class="persistant-disabled" href="#stepper-step-2" data-toggle="tab" aria-controls="stepper-step-2" role="tab" title="Step 2">
+                        <span class="round-tab">2</span>
+                      </a>
+                    </li>
+                    <li role="presentation" class="disabled">
+                      <a id="stepper-step-3-tab" class="persistant-disabled" href="#stepper-step-3" data-toggle="tab" aria-controls="stepper-step-3" role="tab" title="Step 3">
+                        <span class="round-tab">3</span>
+                      </a>
+                    </li>
+                    <li role="presentation" class="disabled">
+                      <a id="stepper-step-4-tab" class="persistant-disabled" href="#stepper-step-4" data-toggle="tab" aria-controls="stepper-step-4" role="tab" title="Complete">
+                        <span class="round-tab">4</span>
+                      </a>
+                    </li>
+                  </ul>
+                  <form role="form" id="SignInForm">
+                    <div class="tab-content">
+                      <div class="tab-pane fade in active" role="tabpanel" id="stepper-step-1">
+                            <!-- Name input -->
+                            <div class="row mb-3">
+                                <div class="col">
+                                  <div  class="form-outline ">
+                                    <input type="text" name="registerFirstName" id="registerFirstName" class="form-control" placeholder="First Name" required/>
+                                  </div>
+                                  <div class="invalid-feedback">
+                                    Please select a valid First Name !
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="form-outline ">
+                                    <input type="text" name="registerLastName" id="registerLastName" class="form-control" placeholder="Last Name" required />
+                                  </div>
+                                  <div class="invalid-feedback">
+                                    Please select a valid Last Name !
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <div class="col">
+                                  <div class="form-check" >
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      Homme
+                                    </label>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                      Femme
+                                    </label>
+                                  </div>
+                                </div>
+                                <div class="invalid-feedback">
+                                  Please select a valid Gender !
+                                </div>
+                            </div>
+                      
+                            <!-- Email input -->
+                            <div class="form-outline mb-3">
+                              <input type="email" name="registerEmail" class="form-control" id="registerEmail" placeholder="Email address" required>
+                              <div class="invalid-feedback">
+                                  Please select a valid email address !
+                                </div>
+                            </div>
+        
+                            <!-- Phone Number input -->
+                            <div class="form-outline mb-3">
+                              <input type="tel" name="registerPhoneNumber" class="form-control" id="registerPhoneNumber" placeholder="Phone Number" required>
+                              <div class="invalid-feedback">
+                                  Please select a valid Phone Number !
+                                </div>
+                            </div>
+        
+                            <div class="form-outline mb-3">
+                              <select class="form-select form-select-lg" name="OLMselect" id="OLMselect" required>
+                                <option value="" disabled selected>Select your OLM</option>
+                                <option value="Beja">Beja</option>
+                                <option value="Bizerte">Bizerte</option>
+                                <option value="Bousalem">Bousalem</option>
+                                <option value="Djoumine">Djoumine</option>
+                                <option value="El Alia">El Alia</option>
+                                <option value="El Krib">El Krib</option>
+                                <option value="Fernena">Fernena</option>
+                                <option value="Ghardimaou">Ghardimaou</option>
+                                <option value="Jendouba">Jendouba</option>
+                                <option value="Mateur">Mateur</option>
+                                <option value="Medjez El Beb">Medjez El Beb</option>
+                                <option value="Menzel Abderrahmen">Menzel Abderrahmen</option>
+                                <option value="Menzel Bourguiba">Menzel Bourguiba</option>
+                                <option value="Menzel Jemil">Menzel Jemil</option>
+                                <option value="Metline">Metline</option>
+                                <option value="Rafraf">Rafraf</option>
+                                <option value="Ras Jebel">Ras Jebel</option>
+                                <option value="Sejnane">Sejnane</option>
+                                <option value="Siliana">Siliana</option>
+                                <option value="UJ-Jendouba">UJ-Jendouba</option>
+                                <option value="Utique">Utique</option>
+                                <option value="Zarzouna">Zarzouna</option>
+                                <option value="Zouaouine">Zouaouine</option>                                
+                              </select>
+                              <div class="invalid-feedback">
+                                Please select a valid OLM !
+                              </div>
+                            </div>
+
+                            <div class="form-outline mb-3">
+                              <select class="form-select form-select-lg" name="RoleSelect" id="RoleSelect" required>
+                                <option value="" disabled selected>Select your role</option>
+                                <option value="Past Président">Past Président</option>
+                                <option value="Président">Président</option>
+                                <option value="Vice-Président">Vice-Président</option>
+                                <option value="Membre">Membre</option>
+                              </select>
+                              <div class="invalid-feedback">
+                                Please select a valid Post !
+                              </div>
+                            </div>
+        
+                      
+                            <!-- Password input -->
+                            <div class="form-outline mb-3" id="password_div">
+                              <input type="password" class="form-control" name="registerPassword" id="registerPassword" placeholder="Password" required>
+                              <div class="invalid-feedback">
+                                Please choose a valid Password !
+                              </div>
+                            </div>
+                      
+                            <!-- Repeat Password input -->
+                            <div class="form-outline mb-5" id="password_div1">
+                              <input type="password" name="registerRepeatPassword" id="registerRepeatPassword" class="form-control" placeholder="Repeat Password" required />
+                              <div class="invalid-feedback" id="invalidpassword">
+                                Please repeat the same password !
+                              </div>
+                            </div>
+
+                            <!-- <div class="row justify-content-center">
+                              <button id="signInBtn" type="button" class="btn btn-primary btn-block mb-3">Sign in</button>
+                            </div> -->
+        
+                        <ul class="list-inline pull-right">
+                          <li>
+                            <a class="btn btn-outline btn-success next-step">Next</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="tab-pane fade" role="tabpanel" id="stepper-step-2">
+                        <div class="pricing">
+                            <div class="plan" id="bronze">
+                              <h2>Bronze</h2>
+                              <div class="price">35 DT</div>
+                              <ul class="features">
+                                <li><i class="fas fa-check-circle mb-5"></i> Inscription Simple</li>
+                              </ul>
+                              <button class="select-button" id="bronze-button">Choose Pack</button>
+                            </div>
+                            <div class="plan" id="gold">
+                              <span>Most Popular</span>
+                              <h2>Gold</h2>
+                              <div class="price">80 DT</div>
+                              <ul class="features">
+                                <li><i class="fas fa-check-circle"></i> Inscription Complète</li>
+                                <li><i class="fas fa-check-circle"></i> Rupture de Jeune</li>
+                                <li><i class="fas fa-check-circle"></i> Hébergement</li>
+                              </ul>
+                              <button class="select-button" id="gold-button">Choose Pack</button>
+                            </div>
+                            <div class="plan" id="silver">
+                              <h2>Silver</h2>
+                              <div class="price">65 DT</div>
+                              <ul class="features">
+                                <li><i class="fas fa-check-circle"></i> Inscription Complète</li>
+                                <li><i class="fas fa-check-circle"></i> Rupture de Jeune</li>
+                              </ul>
+                              <button class="select-button" id="silver-button">Choose Pack</button>
+                            </div>
+                          </div>
+                        <ul class="list-inline pull-right">
+                          <li>
+                            <a class="btn btn-outline btn-default prev-step">Back</a>
+                          </li>
+                          <li>
+                            <a class="btn btn-outline btn-success next-step">Next</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="tab-pane fade" role="tabpanel" id="stepper-step-3">
+                        <form class = "upload-wrapper">
+                            <div class = "upload-container" id="upload-container">
+                                <div class = "upload-img">
+                                    <img src = "upload.png" alt = "">
+                                </div>
+                                <p class = "upload-text text-center" id="text123">Please choose an image to upload.</p>
+                            </div>
+                            <div class="image-upload">
+                                <input type = "file" class = "visually-hidden" id = "upload-input">
+                                <button type = "button" class = "upload-btn">Choose Image</button>
+                            </div>
+                        </form>
+      
+                        <ul class="list-inline pull-right">
+                          <li>
+                            <a class="btn btn-outline btn-default prev-step">Back</a>
+                          </li>
+                          <li>
+                            <a class="btn btn-outline btn-success next-step" id="signInBtn">Confirm Sign In</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="tab-pane fade" role="tabpanel" id="stepper-step-4">
+                        <div id="loader" style="justify-content: center; align-items: center; height: 12rem;">
+                            <span class="loader" style="justify-content: center;"><span class="loader-inner"></span></span>
+                        </div>
+                        <div class="finish_container">
+                            <h3>All done!</h3>
+                            <p>You have successfully completed all steps.</p>
+                            <p> Please check your email inbox for the validation email we sent you !</p>
+                            <i class="fas fa-inbox fa-4x text-light mb-5"></i>
+                            <a class="btn btn-outline btn-success " onclick="window.location.href = 'Home.html';">Continue to Home Page</a>
+                        </div>
+                        <div class="fail_container">
+                            <h3>An Error Occured while regisration !</h3>
+                            <p>Please refresh and try again later.</p>
+                            <p> If the issue persist contact us and we would be more than happy to help !</p>
+                            <a class="btn btn-outline btn-info" onclick="location.reload();">Refresh</a>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+          
+          
+              </div>
+            </div>
+          </div>
+    </section>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+      import { getAuth, createUserWithEmailAndPassword, updateProfile , sendEmailVerification, deleteUser, fetchSignInMethodsForEmail } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
+      import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-storage.js';
+      import { getFirestore, collection, addDoc ,doc} from "https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js";
+
+  
+          const firebaseConfig = {
+      apiKey: "AIzaSyB89Hfs5OwQoHpLSY3OQi-iunFvkwoWcQA",
+      authDomain: "ap2k24-m.firebaseapp.com",
+      projectId: "ap2k24-m",
+      storageBucket: "ap2k24-m.appspot.com",
+      messagingSenderId: "761377868325",
+      appId: "1:761377868325:web:2110c7f5304764d78d4dcc",
+      measurementId: "G-QGM66PBSQ5"
+    };
+
+  
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+      const storage = getStorage(app);
+  
+    async function CreateUser() {
+    const displayName = document.getElementById("registerFirstName").value;
+    const lastName = document.getElementById("registerLastName").value;
+    const email = document.getElementById("registerEmail").value;
+    const phoneNumber = document.getElementById("registerPhoneNumber").value;
+    const OLM = document.getElementById("OLMselect").value;
+    const Poste = document.getElementById("RoleSelect").value;
+    const Radio = document.getElementById("flexRadioDefault1").value;
+    const plan = document.querySelector('.plan.selected h2').textContent;
+    const password = document.getElementById("registerPassword").value;
+    const repeatPassword = document.getElementById("registerRepeatPassword").value;
+    const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+
+    document.getElementById("loader").style = "display :flex; justify-content: center; align-items: center; height: 12rem;";
+
+    // Check if the password and repeat password match
+    if (password !== repeatPassword) {
+        appendAlert('Passwords do not match !', 'danger');
+        return;
+    }
+
+    let user;
+
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        user = userCredential.user;
+        const fileInput = document.getElementById('upload-input');
+        const file = fileInput.files[0];
+
+        const downloadURL = await uploadProfilePicture(file, displayName , lastName);
+
+        await updateProfile(user, { displayName, photoURL: downloadURL });
+
+        const documentName = displayName + "" + lastName;
+
+        const userData = {
+        id: documentName,
+        displayName,
+        lastName,
+        email,
+        phoneNumber,
+        OLM,
+        Poste,
+        Radio,
+        plan,
+        photoURL: user.photoURL
+        };
+
+        await addDoc(collection(db, "users"), userData);
+        await sendEmailVerification(user);
+
+        appendAlert('User Registered Successfully !', 'success');
+        document.getElementById("loader").style.display = "none";
+        document.querySelector(".finish_container").style.display = "flex";
+        document.querySelector(".fail_container").style.display = "none";
+
+
+    } catch (error) {
+    const errorCode = error.code;
+    if (errorCode.startsWith('auth/')) {
+      console.error("Error creating user:", error);
+    } else {
+      console.error("Error:", error);
+      try {
+        await deleteUser(user); // Clean up partially created user
+        console.log("Partially created user deleted.");
+      } catch (deleteError) {
+        console.error("Error deleting partially created user:", deleteError);
+      }
+    }
+    document.getElementById("loader").style.display = "none";
+      appendAlert('User Registration Failed ! Please Try Again Later.', 'danger');
+      document.querySelector(".finish_container").style.display = "none";
+      document.querySelector(".fail_container").style.display = "flex";
+  }
+}
+
+      async function uploadProfilePicture(file, displayName, lastName) {
+          return new Promise((resolve, reject) => {
+            const storageRef = ref(storage, 'profilePictures/' + displayName + lastName + '/' + file.name);
+
+            // Upload file to Firebase Storage
+            uploadBytes(storageRef, file)
+              .then((snapshot) => {
+                console.log('File uploaded successfully');
+
+                // Get the download URL of the uploaded file
+                getDownloadURL(snapshot.ref)
+                  .then((downloadURL) => {
+                    console.log('File available at', downloadURL);
+                    resolve(downloadURL); // Resolve the Promise with the download URL
+                  })
+                  .catch((error) => {
+                    console.error('Error getting download URL:', error);
+                    reject(error); // Reject the Promise if there's an error
+                  });
+              })
+              .catch((error) => {
+                console.error('Error uploading file:', error);
+                reject(error); // Reject the Promise if there's an error
+              });
+          });
+        }
+
+  
+        const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+        const appendAlert = (message, type) => {
+        const wrapper = document.createElement('div')
+        wrapper.innerHTML = [
+            `<div class="alert alert-${type} alert-dismissible d-flex justify-content-center align-items-center" role="alert">`,
+            `   <div>${message}</div>`,
+            '   <button type="button" class="btn-close" data-bs-dismiss="alert" id="dismiss-alert" aria-label="Close"></button>',
+            '</div>'
+        ].join('')
+
+        alertPlaceholder.append(wrapper)
+        setTimeout(function() {
+            document.getElementById("dismiss-alert").click();
+            }, 3000);
+        }
+  
+      document.getElementById("signInBtn").addEventListener("click", CreateUser);
+
+    /*jslint browser: true*/
+/*global $, jQuery, alert*/
+(function($) {
+'use strict';
+
+$(function() {
+
+    $(document).ready(function() {
+        function triggerClick(elem) {
+            $(elem).click();
+        }
+        var $progressWizard = $('.stepper'),
+            $tab_active,
+            $tab_prev,
+            $tab_next,
+            $btn_prev = $progressWizard.find('.prev-step'),
+            $btn_next = $progressWizard.find('.next-step'),
+            $tab_toggle = $progressWizard.find('[data-toggle="tab"]'),
+            $tooltips = $progressWizard.find('[data-toggle="tab"][title]');
+
+        // To do:
+        // Disable User select drop-down after first step.
+        // Add support for payment type switching.
+
+        //Initialize tooltips
+        $tooltips.tooltip();
+
+        //Wizard
+        $tab_toggle.on('show.bs.tab', function(e) {
+            var $target = $(e.target);
+
+            if (!$target.parent().hasClass('active, disabled')) {
+                $target.parent().prev().addClass('completed');
+            }
+            if ($target.parent().hasClass('disabled')) {
+                return false;
+            }
+        });
+
+        function validateForm() {
+            // Initialize a boolean variable to track overall validity
+            let isValid = true;
+
+            // Iterate through each input element
+            $('input, select').each(function() {
+                const $input = $(this);
+
+                // Check if the input is required and if it has a value
+                if ($input.prop('required') && !$input.val()) {
+                    // If the input is required but empty, mark it as invalid
+                    $input.removeClass('is-valid').addClass('is-invalid');
+                    isValid = false;
+                } else {
+                    // Otherwise, mark it as valid
+                    $input.removeClass('is-invalid').addClass('is-valid');
+                }
+
+                // Check if the input has a value and if it is valid
+                if ($input.val() && !$input[0].checkValidity()) {
+                    // If the input is not valid, mark it as invalid
+                    $input.removeClass('is-valid').addClass('is-invalid');
+                    isValid = false;
+                }
+
+                // Display the invalid feedback if the input is invalid
+                if (!$input[0].checkValidity()) {
+                    $input.next('.invalid-feedback').css('display', 'block');
+                } else {
+                    $input.next('.invalid-feedback').css('display', 'none');
+                }
+            });
+
+            if (document.getElementById("registerPassword").value != document.getElementById("registerRepeatPassword").value){
+              document.getElementById("invalidpassword").style.display = "block";
+              isValid = false;
+            }
+
+            // Return the overall validity of the form
+            return isValid;
+        }
+
+
+        // $tab_toggle.on('click', function(event) {
+        //     event.preventDefault();
+        //     event.stopPropagation();
+        //     return false;
+        // });
+        $btn_next.on('click', function() {
+            $tab_active = $progressWizard.find('.active');
+            var isValid = validateForm();
+            if ($tab_active.find('a[data-toggle="tab"]').attr('href').substring(1) ==='stepper-step-1') {
+                if (!isValid){
+                    return;
+                }
+            }
+            if ($tab_active.find('a[data-toggle="tab"]').attr('href').substring(1) ==='stepper-step-2') {
+                if (!isPlanSelected){
+                    appendAlert('Please Choose A Pack !','danger');
+                    return;
+                }
+            }
+            if ($tab_active.find('a[data-toggle="tab"]').attr('href').substring(1) ==='stepper-step-3') {
+                if ($('#upload-input').get(0).files.length === 0) {
+                    appendAlert('Please Upload a picture !','danger');
+                    return;
+                }
+            }
+            $tab_active.next().removeClass('disabled');
+
+            $tab_next = $tab_active.next().find('a[data-toggle="tab"]');
+            triggerClick($tab_next);
+        });
+        $btn_prev.click(function() {
+            $tab_active = $progressWizard.find('.active');
+            $tab_prev = $tab_active.prev().find('a[data-toggle="tab"]');
+            triggerClick($tab_prev);
+        });
+    });
+});
+
+}(jQuery, this));
+</script>
+<script>
+    // Define a boolean variable to track whether a plan is selected
+    let isPlanSelected = false;
+    
+    // Get all select buttons
+    const selectButtons = document.querySelectorAll('.select-button');
+    
+    // Add click event listener to each select button
+    selectButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            event.preventDefault(); // Prevent default form submission behavior
+            // Remove 'selected' class from all plans
+            document.querySelectorAll('.plan').forEach(plan => {
+                plan.classList.remove('selected');
+                plan.querySelector('.select-button').textContent = 'Choose Pack'; // Reset button text for all plans
+            });
+            
+            // Add 'selected' class to the parent plan of the clicked button
+            this.closest('.plan').classList.add('selected');
+            this.textContent = 'Selected Pack'; // Change button text to 'Selected Pack'
+    
+            // Get the ID of the selected plan
+            const selectedPlanId = this.closest('.plan').id;
+            console.log('Selected plan:', selectedPlanId);
+    
+            // Update the boolean variable to indicate that a plan is selected
+            isPlanSelected = true;
+        });
+    });
+    </script>
+    
+<script>
+    $(document).ready(function(){
+    $('.upload-container').add('.upload-btn').click(function(){
+        $('#upload-input').trigger('click');
+    });
+
+    $('#upload-input').change(event => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+
+        reader.onloadend = () => {
+            $('.upload-text').text(file.name);
+            $('.upload-img img').attr('aria-label', file.name);
+            $('.upload-img img').attr('src', reader.result);
+        }
+    })
+});
+</script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
